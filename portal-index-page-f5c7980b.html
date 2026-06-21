@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咪咕体育 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: linear-gradient(145deg, #fce2c1 0%, #fdd7a8 30%, #f7c48d 70%, #f2b57a 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.7;
+            color: #2e241c;
+        }
+        .guide-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .hero-slim {
+            background: rgba(255, 245, 232, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 28px 28px;
+            padding: 2.2rem 2.5rem 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 28px rgba(170, 100, 30, 0.12);
+            border: 1px solid rgba(255, 235, 210, 0.6);
+        }
+        .hero-slim h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #5f3c21;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 1px 2px rgba(255, 225, 180, 0.5);
+        }
+        .hero-slim p {
+            font-size: 1.2rem;
+            color: #6d4e34;
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 248, 238, 0.5);
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 350;
+        }
+
+        /* 目录感卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.6rem 1.9rem;
+            box-shadow: 0 8px 18px rgba(150, 80, 25, 0.08);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(245, 210, 175, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 30px rgba(160, 85, 25, 0.12);
+            border-color: #f5cba0;
+        }
+        .card-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b5865e;
+            background: #f7ede4;
+            display: inline-block;
+            padding: 0.1rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+            font-weight: 500;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #4d311e;
+            margin-bottom: 0.6rem;
+            border-bottom: 2px solid #f3dccb;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #4d3828;
+            margin-bottom: 0.6rem;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li::before {
+            content: "•";
+            color: #c3926b;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.2rem;
+        }
+
+        /* 提示区 + 相关信息 */
+        .notice-area {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 14px rgba(140, 75, 20, 0.06);
+            border-left: 8px solid #d9a77b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .notice-block {
+            flex: 1 1 200px;
+        }
+        .notice-block h4 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            color: #553d28;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .notice-block p {
+            font-size: 0.95rem;
+            color: #584435;
+            margin-bottom: 0.2rem;
+        }
+        .notice-block .small-tag {
+            background: #efe3d9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 16px;
+            font-size: 0.7rem;
+            color: #7b5e46;
+            margin-left: 8px;
+        }
+
+        /* 链接样式：圆角按钮感 */
+        .text-link-block {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem 2rem 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 14px rgba(160, 80, 20, 0.06);
+        }
+        .text-link-block p {
+            font-size: 1.1rem;
+            color: #3d2d20;
+            margin-bottom: 0.2rem;
+        }
+        .link-button {
+            display: inline-block;
+            background: #f5e3d5;
+            border: 1px solid #e6cbb6;
+            border-radius: 60px;
+            padding: 0.8rem 2.2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #4a3322;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 8px rgba(170, 110, 50, 0.08);
+            margin-top: 0.4rem;
+            letter-spacing: 1px;
+        }
+        .link-button:hover {
+            background: #f0d8c4;
+            border-color: #c9a384;
+            transform: scale(1.02);
+            box-shadow: 0 10px 16px rgba(150, 70, 20, 0.10);
+        }
+        .link-button:active {
+            transform: scale(0.97);
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem 2rem 1.8rem;
+            box-shadow: 0 6px 14px rgba(160, 80, 20, 0.04);
+            margin-bottom: 2rem;
+        }
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #4f3825;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item {
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f3e5da;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            min-width: 80px;
+            font-weight: 500;
+            color: #6c4f37;
+        }
+        .faq-a {
+            color: #4f3b2b;
+        }
+
+        .footer-note {
+            color: #6b5542;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0.8rem;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero-slim {
+                padding: 1.5rem 1rem;
+            }
+            .hero-slim h1 {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .notice-area {
+                flex-direction: column;
+                padding: 1.4rem;
+            }
+            .link-button {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="guide-wrapper">
+
+    <!-- 标题区 / 简明指南 -->
+    <div class="hero-slim">
+        <h1>📘 咪咕体育 · 简明指南</h1>
+        <p>知识库风格 · 从访问提醒开始</p>
+    </div>
+
+    <!-- 卡片网格：目录感布局 -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="card-label">🧭 定位</span>
+            <h3>一站式的体育聚合</h3>
+            <p>咪咕体育覆盖足球、篮球、乒乓球、网球、极限运动等多类赛事。直播回放、集锦、数据战报 —— 内容按赛历与联赛归档，像一本随时翻看的运动手册。</p>
+            <ul>
+                <li>赛事直播与回放库</li>
+                <li>实时比分 & 球员统计</li>
+                <li>原创解说与战术分析</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="card-label">📌 特点</span>
+            <h3>观看与记录并重</h3>
+            <p>不只是播放器。你可以收藏比赛、设置开赛提醒、浏览深度专题。平台将热门联赛（英超、CBA、中超、欧冠等）做了清晰归类，减少翻找成本。</p>
+            <ul>
+                <li>赛程日历 + 提醒</li>
+                <li>多视角 / 解说自由切换</li>
+                <li>赛事精选专题</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="card-label">🎬 场景</span>
+            <h3>日常与周末都适用</h3>
+            <p>通勤路上刷几分钟集锦，周末约朋友一起看关键战。咪咕体育的界面在手机和电脑上都比较清爽，适合快速找到想看的比赛。</p>
+            <ul>
+                <li>碎片时间：高光集锦</li>
+                <li>深度观赛：完整直播 + 聊天室</li>
+                <li>赛后补习：全场回放</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示区 + 相关信息区 合并 -->
+    <div class="notice-area">
+        <div class="notice-block">
+            <h4>🔔 访问提醒 <span class="small-tag">新用户</span></h4>
+            <p>首次使用建议先浏览「赛历」页面，设置你关注的联赛。部分内容需登录账号，免费注册即可体验大部分功能。</p>
+        </div>
+        <div class="notice-block">
+            <h4>📎 相关信息</h4>
+            <p>平台支持手机号/邮箱登录，也提供微信快捷绑定。高清直播对网络有一定要求，移动端可调整清晰度。</p>
+        </div>
+        <div class="notice-block">
+            <h4>🕒 内容更新</h4>
+            <p>每日凌晨更新比赛结果与积分榜。专题栏目每周会推出热点复盘，适合新老球迷。</p>
+        </div>
+    </div>
+
+    <!-- 带有圆角按钮感链接的区块，自然嵌入句子 -->
+    <div class="text-link-block">
+        <p>想要直接进入体育世界？你可以随时前往 <a href="https://portal-index-migu.com" class="link-button">咪咕体育</a> 浏览赛程、查询内容或管理关注。它就像一本随身携带的赛事指南。</p>
+    </div>
+
+    <!-- FAQ 摘要 style -->
+    <div class="faq-mini">
+        <h3>❓ 常见问题摘要 <span style="font-size:0.75rem; font-weight:400; color:#8b755e;">( 部分 )</span></h3>
+        <div class="faq-item">
+            <span class="faq-q">回放保留多久？</span>
+            <span class="faq-a">大部分版权赛事回放保留 30–90 天，具体以页面标注为准。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">能否多端同步？</span>
+            <span class="faq-a">登录同一账号可以同步收藏和观看记录，但直播设备数量有限制。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">免费内容多吗？</span>
+            <span class="faq-a">每日有免费场次，完整赛季通需订阅，但集锦和数据基本免费开放。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">画质选项？</span>
+            <span class="faq-a">通常提供流畅/高清/超清，视版权和网络情况而定。</span>
+        </div>
+    </div>
+
+    <!-- 底边 -->
+    <div class="footer-note">
+        · 知识库风格 · 信息仅供参考 ·
+    </div>
+</div>
+</body>
+</html>
